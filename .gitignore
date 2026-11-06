@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.pcap
+*.pcapng
+*.har
+*.log
+*.pem
+*.key
+captures/
+private/
+.DS_Store

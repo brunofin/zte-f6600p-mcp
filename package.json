@@ -1,0 +1,35 @@
+{
+  "name": "zte-f6600p-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Independent ZTE F6600P HTTP client, endpoint research and MCP blueprint",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "exports": { ".": "./dist/client/index.js", "./mcp": "./dist/mcp/server.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.tools.json",
+    "test": "tsx --test --test-timeout=30000 test/*.test.ts",
+    "start": "node dist/mcp/index.js",
+    "dev": "tsx src/mcp/index.ts",
+    "docs:generate": "tsx scripts/generate-docs.ts",
+    "docs:check": "tsx scripts/generate-docs.ts --check",
+    "docs:serve": "node scripts/serve-docs.mjs",
+    "privacy:check": "node scripts/check-privacy.mjs",
+    "check": "npm run typecheck && npm test && npm run docs:check && npm run privacy:check"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "fast-xml-parser": "5.12.0",
+    "got": "16.2.0",
+    "tough-cookie": "6.0.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-parser": "13.1.0",
+    "@types/node": "^24.0.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

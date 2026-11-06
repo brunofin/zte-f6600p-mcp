@@ -1,0 +1,6663 @@
+{
+  "schemaVersion": 1,
+  "router": {
+    "manufacturer": "ZTE",
+    "model": "F6600P",
+    "firmware": "V9.0.10P6N6",
+    "hardware": "V9.0.12"
+  },
+  "scope": {
+    "coverage": "References in 29 authenticated menu leaves, login/shared JavaScript and four UPnP service descriptions; unlinked or administrator-only handlers may exist.",
+    "schemas": "Source-derived field candidates and observed response field names; not authoritative server validation schemas.",
+    "verification": "Read/write flags describe narrowly observed behavior on one firmware, not guaranteed access on other deployments.",
+    "privacy": "Curated protocol metadata only. No raw UI, router configuration, addresses, device identities, passwords, certificates, sessions or captures."
+  },
+  "menuViews": [
+    {
+      "page": "homePage",
+      "method": "GET"
+    },
+    {
+      "page": "mmTopology",
+      "method": "GET"
+    },
+    {
+      "page": "ethWanStatus",
+      "method": "GET"
+    },
+    {
+      "page": "Wan3gStatus",
+      "method": "GET"
+    },
+    {
+      "page": "tunnel4in6Status",
+      "method": "GET"
+    },
+    {
+      "page": "l2tpStatus",
+      "method": "GET"
+    },
+    {
+      "page": "firewall",
+      "method": "GET"
+    },
+    {
+      "page": "filterCriteria",
+      "method": "GET"
+    },
+    {
+      "page": "dmz",
+      "method": "GET"
+    },
+    {
+      "page": "portForwarding",
+      "method": "GET"
+    },
+    {
+      "page": "ddns",
+      "method": "GET"
+    },
+    {
+      "page": "sntp",
+      "method": "GET"
+    },
+    {
+      "page": "localNetStatus",
+      "method": "GET"
+    },
+    {
+      "page": "wlanBasic",
+      "method": "GET"
+    },
+    {
+      "page": "wlanAdvanced",
+      "method": "GET"
+    },
+    {
+      "page": "wps",
+      "method": "GET"
+    },
+    {
+      "page": "wlanStaScanAP",
+      "method": "GET"
+    },
+    {
+      "page": "lanMgrIpv4",
+      "method": "GET"
+    },
+    {
+      "page": "ftp",
+      "method": "GET"
+    },
+    {
+      "page": "upnp",
+      "method": "GET"
+    },
+    {
+      "page": "upnpportmapss",
+      "method": "GET"
+    },
+    {
+      "page": "dms",
+      "method": "GET"
+    },
+    {
+      "page": "samba",
+      "method": "GET"
+    },
+    {
+      "page": "dns",
+      "method": "GET"
+    },
+    {
+      "page": "usbfunccfg",
+      "method": "GET"
+    },
+    {
+      "page": "voipStatus",
+      "method": "GET"
+    },
+    {
+      "page": "statusMgr",
+      "method": "GET"
+    },
+    {
+      "page": "rebootAndReset",
+      "method": "GET"
+    },
+    {
+      "page": "accountMgr",
+      "method": "GET"
+    }
+  ],
+  "httpHandlers": [
+    {
+      "tag": "accessdev_data",
+      "type": "hiddenData",
+      "pages": [
+        "dmz"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "_LuQUID_HostName",
+        "_LuQUID_IPAddress",
+        "_LuQUID_MACAddress"
+      ],
+      "observedObjects": [
+        "OBJ_ACCESSDEV_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Authenticated/login shared JavaScript reference",
+          "parameters": {
+            "DeveiceType": "ETH | WLAN | ALL (firmware spelling)"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "quick_sess",
+      "type": "hiddenData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "POST",
+          "effect": "session_state_change",
+          "verified": false,
+          "evidence": "Authenticated/login shared JavaScript reference",
+          "parameters": {
+            "IF_quickData": "1 enters quick setup; 0 exits; session/UI state only"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "sntp_data",
+      "type": "hiddenData",
+      "pages": [
+        "sntp"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AutoSetTzname",
+        "CurrentLocalTime",
+        "DaylightSavingsUsed",
+        "Dscp",
+        "Enable",
+        "NtpConfigPermission",
+        "NtpServer1",
+        "NtpServer2",
+        "NtpServer3",
+        "NtpServer4",
+        "NtpServer5",
+        "PollTimeInterval",
+        "SntpBindWanName",
+        "ZoneIndex",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_SNTP_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Authenticated/login shared JavaScript reference"
+        }
+      ]
+    },
+    {
+      "tag": "switchlang_entry",
+      "type": "hiddenData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "POST",
+          "effect": "ui_preference_write",
+          "verified": false,
+          "evidence": "Authenticated/login shared JavaScript reference",
+          "parameters": {
+            "IF_LanguageSwitch": "English | Portuguese"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "login_entry",
+      "type": "loginData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "authentication_state_read",
+          "verified": true,
+          "evidence": "Authenticated/login shared JavaScript reference"
+        },
+        {
+          "method": "POST",
+          "effect": "login",
+          "verified": true,
+          "evidence": "Authenticated/login shared JavaScript reference",
+          "parameters": {
+            "action": "login",
+            "Username": "credential",
+            "Password": "sha256(password + challenge)",
+            "_sessionTOKEN": "sess_token from login_entry GET"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "login_token",
+      "type": "loginData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "authentication_challenge",
+          "verified": true,
+          "evidence": "Authenticated/login shared JavaScript reference"
+        }
+      ]
+    },
+    {
+      "tag": "logout_entry",
+      "type": "loginData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "POST",
+          "effect": "logout",
+          "verified": true,
+          "evidence": "Authenticated/login shared JavaScript reference",
+          "parameters": {
+            "IF_LogOff": "1"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "modeswitch_entry",
+      "type": "loginData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "POST",
+          "effect": "ui_preference_write",
+          "verified": false,
+          "evidence": "Authenticated/login shared JavaScript reference",
+          "parameters": {
+            "IF_ModeSwitch": "Basic | Advanced"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Localnet_LanDevDHCPSource_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "lanMgrIpv4"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "ProcFlag",
+        "VendorClassID",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_LANDEVDHCPSOURCE_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "lanMgrIpv4",
+          "section": "LanDevDHCPSource",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ProcFlag",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "3",
+                "2",
+                "1"
+              ]
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Localnet_LanMgrIpv4_DHCPBasicCfg_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "lanMgrIpv4"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "DNSServer1",
+        "DNSServer2",
+        "DnsServerSource",
+        "IPAddr",
+        "IPv4AssignLANIP",
+        "IPv6AssignLANIP",
+        "Ipv4DnsOrigin",
+        "Ipv6DnsOrigin",
+        "LeaseTime",
+        "MaxAddress",
+        "MinAddress",
+        "OptCode",
+        "OptEnable",
+        "OptValue",
+        "ServerEnable",
+        "SubMask",
+        "SubnetMask",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_Br0AndDhcpsHosCfg_ID",
+        "OBJ_LANDNS_ID",
+        "OBJ_OPTTFTPSERV_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "lanMgrIpv4",
+          "section": "DHCPBasicCfg",
+          "query": {},
+          "fields": [
+            {
+              "name": "IF_URL_HOST",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IPAddr",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SubMask",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "OptEnable",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "OptCode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SubnetMask",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MinAddress",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MaxAddress",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IPRouters",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNSServer1",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNSServer2",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LeaseTime",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ServerEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "DnsServerSource",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "OptValue",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": true,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false,
+          "verificationScope": "DHCP start-address update only"
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Localnet_LanMgrIpv4_DHCPHostInfo_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "lanMgrIpv4"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "ExpiredTime",
+        "HostName",
+        "IPAddr",
+        "MACAddr",
+        "PhyPortName",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_DHCPHOSTINFO_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "lanMgrIpv4",
+          "section": "DHCPHostInfo",
+          "query": {},
+          "fields": [],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "Localnet_LanMgrIpv4_DHCPStaticRule_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "lanMgrIpv4"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [
+        "OBJ_DHCPBIND_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "lanMgrIpv4",
+          "section": "DHCPStaticRule",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MACAddr",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IPAddr",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Name",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DHCPStaticRule_Refresh_button",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": true
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Delete control + shared initial_button handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Delete"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Localnet_ftp_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "ftp"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "FtpAnon",
+        "FtpEnable",
+        "Username",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FMFTPSERVERCFG_ID",
+        "OBJ_FMFTPUSER_ID"
+      ],
+      "encodedFields": [
+        "Password"
+      ],
+      "bindings": [
+        {
+          "page": "ftp",
+          "section": "LocalFtp",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "FtpEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "FtpAnon",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "name": "Username",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Password",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Samba_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "samba"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AuthType",
+        "AutoRun",
+        "EnableSmb",
+        "NetbiosName",
+        "UserEnable",
+        "UserName",
+        "UserRight",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_SAMBACFG_ID",
+        "OBJ_SAMBAUSER_ID"
+      ],
+      "encodedFields": [
+        "PassWord"
+      ],
+      "bindings": [
+        {
+          "page": "samba",
+          "section": "Samba",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "EnableSmb",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "AutoRun",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "SambaSwitch",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "2",
+                "3",
+                "1"
+              ]
+            },
+            {
+              "name": "NetbiosName",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "AuthType",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "name": "UserEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "UserName",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "PassWord",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "accessdev_homepage_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "homePage"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AliasName",
+        "HostName",
+        "IPAddress",
+        "IPV6Address",
+        "MACAddress"
+      ],
+      "observedObjects": [
+        "OBJ_ACCESSDEV_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Home-page JavaScript uses dataTransfer GET",
+          "parameters": {
+            "InstNum": "optional UI list limit, observed 5"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "accessdev_landevs_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "localNetStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AliasName",
+        "HostName",
+        "IPAddress",
+        "IPV6Address",
+        "MACAddress"
+      ],
+      "observedObjects": [
+        "OBJ_ACCESSDEV_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "localNetStatus",
+          "section": "LANDevs",
+          "query": {},
+          "fields": [
+            {
+              "name": "InPkts",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "OutPkts",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "InBytes",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "OutBytes",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "db_resetmgr_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "rebootAndReset"
+      ],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "rebootAndReset",
+          "section": "ResetManag",
+          "query": {},
+          "fields": [
+            {
+              "name": "Msg",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": false,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "factory_reset",
+          "verified": false,
+          "evidence": "Explicit device Reset handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Reset"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "ddns_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "ddns"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "DomainName",
+        "Enable",
+        "Interface",
+        "Service",
+        "Status",
+        "UserType",
+        "Username",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_DDNSCLIENT_ID"
+      ],
+      "encodedFields": [
+        "Password"
+      ],
+      "bindings": [
+        {
+          "page": "ddns",
+          "section": "Ddns",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Service",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "serviceInst",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Name",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Server",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Interface",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "",
+                "DEV.IP.IF3"
+              ]
+            },
+            {
+              "name": "Enable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "serviceUrl",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Username",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Password",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "DomainName",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "phddns_Username",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "phddns_Password",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "devauth_accountmgr_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "accountMgr"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Enable",
+        "Keyword",
+        "Right",
+        "Username",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_USERINFO_ID"
+      ],
+      "encodedFields": [
+        "NewPassword",
+        "Password"
+      ],
+      "bindings": [
+        {
+          "page": "accountMgr",
+          "section": "AccountManag",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Right",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Enable",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Username",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "Password",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "NewPassword",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "Keyword",
+              "controlType": "text",
+              "sensitive": true,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "devmgr_restartmgr_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "rebootAndReset"
+      ],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "rebootAndReset",
+          "section": "RestartManag",
+          "query": {},
+          "fields": [
+            {
+              "name": "Msg",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": false,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "reboot",
+          "verified": false,
+          "evidence": "Explicit device Restart handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Restart"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "devmgr_statusmgr_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "statusMgr"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "BootVer",
+        "CpuUsage1",
+        "CpuUsage2",
+        "CpuUsage3",
+        "CpuUsage4",
+        "HardwareVer",
+        "ManuFacturer",
+        "ManuFacturerOui",
+        "MemUsage",
+        "ModelName",
+        "OnuAlias",
+        "PowerOnTime",
+        "SerialNumber",
+        "SoftwareVer",
+        "SoftwareVerExtent",
+        "VerDate",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_DEVINFO_ID",
+        "OBJ_CPUMEMUSAGE_ID",
+        "OBJ_POWERONTIME_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "statusMgr",
+          "section": "ManagStatus",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "dms_dms_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "dms"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "ContentList",
+        "DmsName",
+        "Enable",
+        "PathRoot",
+        "RescanTime",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_DMS_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "dms",
+          "section": "DMS",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ContentList",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Enable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "DmsName",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RescanTime",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "-1",
+                "0",
+                "1"
+              ]
+            }
+          ],
+          "hooks": [
+            "PostDataChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "dms_querydir_lua.lua",
+      "type": "menuData",
+      "pages": [],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "filesystem_read",
+          "verified": false,
+          "evidence": "DLNA browser request; no directory listing fetched during discovery",
+          "parameters": {
+            "querydir": "USB directory path"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "dns_localdns_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "dns"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "DomainName",
+        "SerIPAddress1",
+        "SerIPAddress2",
+        "SerIPv6Address1",
+        "SerIPv6Address2",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_DNS_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "dns",
+          "section": "LocalDnsServer",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SerIPAddress1",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SerIPAddress2",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SerIPv6Address1",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SerIPv6Address2",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "PostDataChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "firewall_config_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "firewall"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Enable",
+        "Level",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FWLEVEL_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "firewall",
+          "section": "FirewallConf",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Enable",
+              "controlType": "checkbox",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Level",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "High",
+                "Middle",
+                "Low"
+              ]
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "firewall_dmz_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "dmz"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Enable",
+        "InternalClient",
+        "WANCViewName",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FWDMZ_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "dmz",
+          "section": "Ipv4Dmz",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Enable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "WANCViewName",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "IGD.WANIF",
+                "DEV.IP.IF3"
+              ]
+            },
+            {
+              "name": "InternalClient",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "firewall_dos_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "firewall"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Enable",
+        "Threshold",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FWDOS_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "firewall",
+          "section": "FirewallDos",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Enable",
+              "controlType": "checkbox",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Threshold",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "firewall_filterglobal_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "filterCriteria"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "MacFilterEnable",
+        "MacFilterTarget",
+        "UrlFilterEnable",
+        "UrlFilterTarget",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FWBASE_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "filterCriteria",
+          "section": "SecurityGlobalCtl",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MacFilterEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "MacFilterTarget",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "Discard",
+                "Permit"
+              ]
+            },
+            {
+              "name": "UrlFilterEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "UrlFilterTarget",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "0",
+                "1"
+              ]
+            }
+          ],
+          "hooks": [
+            "PostDataChangeByCustom",
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "firewall_homepage_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "homePage"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AntiAttack",
+        "Level",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FWLEVEL_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Home-page JavaScript uses dataTransfer GET"
+        }
+      ]
+    },
+    {
+      "tag": "firewall_ipfilter_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "filterCriteria"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [
+        "OBJ_FWIP_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "filterCriteria",
+          "section": "IPFilter",
+          "query": {},
+          "fields": [
+            {
+              "name": "Enable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Name",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "FilterTarget",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "FilterIndex",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20"
+              ]
+            },
+            {
+              "name": "IPVersion",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "-1",
+                "4",
+                "6"
+              ]
+            },
+            {
+              "name": "SourceIPMask",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DestIPMask",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SourceIP",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SMask",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DestIP",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DMask",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Protocol",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "hiddenProtocol",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "256",
+                "1",
+                "6",
+                "17",
+                "58",
+                "257",
+                "other"
+              ]
+            },
+            {
+              "name": "inputProtocol",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MinSrcPort",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MaxSrcPort",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MinDstPort",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MaxDstPort",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "INCViewName",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "",
+                "DEV.IP.IF1",
+                "DEV.IP.IF3"
+              ]
+            },
+            {
+              "name": "OUTCViewName",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "",
+                "DEV.IP.IF1",
+                "DEV.IP.IF3"
+              ]
+            },
+            {
+              "name": "DSCP",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "PostDataChangeByCustom",
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": true
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Delete control + shared initial_button handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Delete"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "firewall_portforwarding_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "portForwarding"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Alias",
+        "AllInterface",
+        "Description",
+        "Enable",
+        "ExternalPort",
+        "ExternalPortEndRange",
+        "Interface",
+        "InternalClient",
+        "InternalPort",
+        "InternalPortEndRange",
+        "Protocol",
+        "RemoteHost",
+        "RemoteHostEndRange",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_FWPM_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "portForwarding",
+          "section": "PortForwarding",
+          "query": {},
+          "fields": [
+            {
+              "name": "Enable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RemoteHost",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RemoteHostEndRange",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "AllInterface",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Interface",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Alias",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Description",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Protocol",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "TCP",
+                "UDP",
+                "BOTH"
+              ]
+            },
+            {
+              "name": "InternalClient",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ExternalPort",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ExternalPortEndRange",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "InternalPort",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "InternalPortEndRange",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": true
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Delete control + shared initial_button handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Delete"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "l2tp_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "l2tpStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AuthType",
+        "ConnSatus",
+        "DNS1",
+        "DNS2",
+        "DNS3",
+        "Enable",
+        "GateWay",
+        "IPAddress",
+        "IpMode",
+        "L2tpServer1",
+        "LowIFID",
+        "NATEnable",
+        "SessionName",
+        "SubnetMask",
+        "UpTime",
+        "UserName",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_L2TP_ID"
+      ],
+      "encodedFields": [
+        "Password"
+      ],
+      "bindings": [
+        {
+          "page": "l2tpStatus",
+          "section": "L2tpStatus",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "sntp_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "sntp"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AutoSetTzname",
+        "CurrentLocalTime",
+        "DaylightSavingsUsed",
+        "Dscp",
+        "Enable",
+        "NtpConfigPermission",
+        "NtpServer1",
+        "NtpServer2",
+        "NtpServer3",
+        "NtpServer4",
+        "NtpServer5",
+        "PollTimeInterval",
+        "SntpBindWanName",
+        "ZoneIndex",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_SNTP_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "sntp",
+          "section": "LocalSntp",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ZoneIndex",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "AutoSetTzname",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LocalTimeZoneandName",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "NtpServer1",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "NtpServer2",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "NtpServer3",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "NtpServer4",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "NtpServer5",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "PollTimeInterval",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DaylightSavingsUsed",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "Dscp",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "PostDataChangeByCustom",
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "status_lan_info_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "localNetStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Duplex",
+        "InBytes",
+        "InDiscard",
+        "InError",
+        "InMulticast",
+        "InPkts",
+        "InUnicast",
+        "OutBytes",
+        "OutDiscard",
+        "OutError",
+        "OutMulticast",
+        "OutPkts",
+        "OutUnicast",
+        "Speed",
+        "Status",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_PON_PORT_BASIC_STATUS_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "localNetStatus",
+          "section": "lan_info",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "counter_reset",
+          "verified": false,
+          "evidence": "Explicit status-page counter clear handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "LAN_CLEAR"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "topo_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "mmTopology"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "mmTopology",
+          "section": "AccessDevDisplay",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "Topology dataPost with explicit custom body; action is query parameter, NOT IF_ACTION",
+          "action": {
+            "parameter": "query:Action",
+            "value": "SET_ALIAS"
+          },
+          "parameters": {
+            "InstIdentity": "MAC/instance identity from topology",
+            "Alias": "display name"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "tunnel_4in6_status_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "tunnel4in6Status"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "tunnel4in6Status",
+          "section": "Tnl4in6Status",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "upnp_portmap_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "upnpportmapss"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Description",
+        "ExternalPort",
+        "InternalClient",
+        "InternalPort",
+        "Protocol",
+        "ServerIPAddress",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_UPNPPORTMAP_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "upnpportmapss",
+          "section": "PortMap",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "upnp_upnp_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "upnp"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "ADPeriod",
+        "EnableAction",
+        "EnableUPnPIGD",
+        "TTL",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_UPNPCONFIG_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "upnp",
+          "section": "LocalUPnP",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "EnableUPnPIGD",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "ADPeriod",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TTL",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "usb_homepage_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "homePage"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "FtpEnable",
+        "IPAddr",
+        "ServerPort",
+        "USBIfNum",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_USBDEV_ID",
+        "OBJ_BRGRP_ID",
+        "OBJ_FMFTPSERVERCFG_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Home-page JavaScript uses dataTransfer GET"
+        },
+        {
+          "method": "POST",
+          "effect": "device_state_change",
+          "verified": false,
+          "evidence": "Home-page explicit EjectDev request",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "EjectDev"
+          },
+          "parameters": {
+            "EjectId": "UI example /mnt/usb1_1; select actual device, never assume path"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "usb_usbdevs_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "localNetStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [
+        "OBJ_USBSTORAGE_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "localNetStatus",
+          "section": "USBDevs",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "usb_usbfunccfg_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "usbfunccfg"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "PrinterEnable",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_USB_FUNC_CFG_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "usbfunccfg",
+          "section": "LocalUSBFuncCfg",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "PrinterEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "voipRegStatus_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "voipStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AuthUserName",
+        "AuthUserName3",
+        "DirectoryNumber",
+        "RegStatus",
+        "VoIPRegStatus",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_VOIPSIPLINE_ID",
+        "OBJ_VOIPVPLINE_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "voipStatus",
+          "section": "VOIPRegStatus",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "voipVpPhyinterface_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "voipStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "LanPortStatus",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_VOIPVPPHYINTERFACE_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "voipStatus",
+          "section": "VOIPPhoneStatus",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "voip_homepage_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "homePage"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AuthUserName",
+        "IsOnline",
+        "LanPortStatus",
+        "VoIPRegStatus",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_VOIPSIPLINE_ID",
+        "OBJ_VOIPVPLINE_ID",
+        "OBJ_VOIPVPPHYINTERFACE_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Home-page JavaScript uses dataTransfer GET"
+        }
+      ]
+    },
+    {
+      "tag": "wan_3g_status_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "Wan3gStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "Wan3gStatus",
+          "section": "WAN3GStatus",
+          "query": {},
+          "fields": [
+            {
+              "name": "TtyPDPType",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsNAT",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ConnStatus",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ConnError",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNS1",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNS2",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNS3",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IPAddress",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SubnetMask",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "wan_internetstatus_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "ethWanStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "AuthType",
+        "ConnError",
+        "ConnStatus",
+        "ConnStatus6",
+        "ConnTrigger",
+        "DNS1",
+        "DNS2",
+        "DNS3",
+        "DSCP",
+        "Dns1v6",
+        "Dns2v6",
+        "Dns3v6",
+        "Enable",
+        "EnablePassThrough",
+        "GateWay",
+        "Gateway6",
+        "Gua1",
+        "Gua1PrefixLen",
+        "Gua2",
+        "Gua2PrefixLen",
+        "Gua3",
+        "Gua3PrefixLen",
+        "GuaNum",
+        "IPAddress",
+        "IPv6AcquireMode",
+        "IpMode",
+        "IsDefGW",
+        "IsGUA",
+        "IsNAT",
+        "IsPD",
+        "IsPdAddr",
+        "IsSLAAC",
+        "LLA",
+        "MTU",
+        "MaxMRU",
+        "PPPoeServiceName",
+        "Password",
+        "Pd",
+        "PdLen",
+        "Priority",
+        "RemoteLLA",
+        "ServList",
+        "StrServList",
+        "SubnetMask",
+        "TransType",
+        "Unnumbered",
+        "UpTime",
+        "UpTimeV6",
+        "UserName",
+        "VLANID",
+        "VlanEnable",
+        "WANCName",
+        "WorkIFMac",
+        "_InstID",
+        "linkMode",
+        "mode",
+        "pageType",
+        "uplink",
+        "wantype",
+        "xdslMode"
+      ],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "ethWanStatus",
+          "section": "EthStateDev",
+          "query": {
+            "TypeUplink": "2",
+            "pageType": "1"
+          },
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IF_UPLINK",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "xDslMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Status",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "linkMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TransType",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IpMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "mode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsNAT",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IPAddress",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SubnetMask",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ConnStatus",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "UpTime",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LLA",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "GuaNum",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Gua1",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Gua2",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Gua3",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Dns1v6",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Dns2v6",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Dns3v6",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "UpTimeV6",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "WorkIFMac",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ConnStatus6",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "GateWay",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ConnError",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Gateway6",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RemoteLLA",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RemainLeaseTime",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Addressingtype",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNS1",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNS2",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DNS3",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DestAddress",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsAuto",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "GuaSrc",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Gateway6Src",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DnsSrc",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsPD",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ConnTrigger",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LLAStatus",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "StrServList",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "VLANID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Pd",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "PdLen",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxPackets",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxPackets",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxBytes",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxBytes",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxErrors",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxErrors",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxUnicast",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxUnicast",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxDropped",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxDropped",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxMulticast",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxMulticast",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TxBroadcast",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RxBroadcast",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsSLAAC",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsGUA",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "IsPdAddr",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "DHCPServer",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "PortRange",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LocalIPv6Addr",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LocalIPv4Addr",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "LowIFID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MAPEStatus",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "DHCPRENEW"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "DHCPRELEASE"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "PPPCONNECT"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "PPPDISCONNECT"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "PPPCTCCONNECT"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "PPPCTCDISCONNECT"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "PPPVIETCONNECT"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "connectivity_disrupting",
+          "verified": false,
+          "evidence": "WAN status custom button handler; some provider-specific branches may not apply",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "PPPVIETDISCONNECT"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "web_login_timeout_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "accountMgr"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "accountMgr",
+          "section": "LoginTimeout",
+          "query": {},
+          "fields": [
+            {
+              "name": "Timeout",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_client_stat_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "localNetStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Alias",
+        "AliasName",
+        "BAND",
+        "ConnectTime",
+        "CurrentMode",
+        "ESSID",
+        "HostName",
+        "IPAddress",
+        "IPV6Address",
+        "LinkTime",
+        "MACAddress",
+        "MCS",
+        "NOISE",
+        "RSSI",
+        "RXBytes",
+        "RXPackets",
+        "RxRate",
+        "SNR",
+        "TXBytes",
+        "TXPackets",
+        "TxRate",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLAN_AD_ID",
+        "OBJ_WLANAP_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "localNetStatus",
+          "section": "Wlan_ClientStat",
+          "query": {},
+          "fields": [
+            {
+              "name": "RXPackets",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TXPackets",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "RXBytes",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TXBytes",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    },
+    {
+      "tag": "wlan_homepage_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "homePage"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "HostName",
+        "IPAddress",
+        "IPV6Address",
+        "MACAddress",
+        "RadioSwitch"
+      ],
+      "observedObjects": [
+        "OBJ_ACCESSDEV_ID",
+        "OBJ_WLANRADIO_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "Home-page JavaScript uses dataTransfer GET",
+          "parameters": {
+            "InstNum": "optional UI list limit, observed 5"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_macfilteraclpolicy_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wlanAdvanced"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "ACLPolicy",
+        "Alias",
+        "Band",
+        "RadioStatus",
+        "WLANViewName",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLANSETTING_ID",
+        "OBJ_WLANAP_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "wlanAdvanced",
+          "section": "MACFilterACLPolicy",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "ACLPolicy",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "Disabled",
+                "Ban",
+                "Allow"
+              ]
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_macfilterrule_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wlanAdvanced"
+      ],
+      "readVerified": true,
+      "observedFields": [],
+      "observedObjects": [
+        "OBJ_ACLCFG_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "wlanAdvanced",
+          "section": "MACFilterRule",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "MACAddress",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Name",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Interface",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "DEV.WIFI.AP1",
+                "DEV.WIFI.AP2",
+                "DEV.WIFI.AP3",
+                "DEV.WIFI.AP4",
+                "DEV.WIFI.AP5",
+                "DEV.WIFI.AP6",
+                "DEV.WIFI.AP7",
+                "DEV.WIFI.AP8"
+              ]
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": true
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Delete control + shared initial_button handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Delete"
+          }
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_sta_wlan_profile_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wlanStaScanAP"
+      ],
+      "readVerified": false,
+      "observedFields": [],
+      "observedObjects": [],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "wlanStaScanAP",
+          "section": "WLANScanAP",
+          "query": {},
+          "fields": [],
+          "hooks": []
+        },
+        {
+          "page": "wlanStaScanAP",
+          "section": "WLANScanAP5g",
+          "query": {},
+          "fields": [
+            {
+              "name": "DataHasBeenGot5g",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "active_radio_scan",
+          "verified": false,
+          "evidence": "UI scan handler: GET has operational side effects",
+          "action": {
+            "parameter": "query:APGetFrom",
+            "value": "ScanAP"
+          },
+          "parameters": {
+            "_sessionTOKEN": "fresh page token"
+          }
+        },
+        {
+          "method": "GET",
+          "effect": "active_radio_scan",
+          "verified": false,
+          "evidence": "UI scan handler: GET has operational side effects",
+          "action": {
+            "parameter": "query:APGetFrom",
+            "value": "ScanAP5g"
+          },
+          "parameters": {
+            "_sessionTOKEN": "fresh page token"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_wlanbasicadconf_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wlanBasic"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "11nMode",
+        "AutoChannelEnabled",
+        "Band",
+        "BandWidth",
+        "BasicDataRates",
+        "CardMode",
+        "Channel",
+        "ChannelList",
+        "CountryCode",
+        "DownLinkMUMIMO",
+        "GreenField",
+        "MUMIMOEnable",
+        "OpDataRates",
+        "PreambleType",
+        "RadioStatus",
+        "Standard",
+        "UPLinkMUMIMO",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLANSETTING_ID",
+        "OBJ_CHANNEL_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "wlanBasic",
+          "section": "WlanBasicAdConf",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "BasicDataRates",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "OpDataRates",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "11nMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "GreenField",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "AutoChannelEnabled",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Band",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Channel",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SideBand",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Standard",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "BandWidth",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "AutoChRange",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "PreambleType",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "0",
+                "1",
+                "2"
+              ]
+            },
+            {
+              "name": "WlanBasicAdConf_Refresh_button",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": true,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false,
+          "verificationScope": "2.4 GHz mixed-mode update only; SSID/security and other radio settings preserved"
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_wlanbasiconoff_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wlanBasic"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Band",
+        "RadioStatus",
+        "TimeEndHour",
+        "TimeEndMin",
+        "TimeStartHour",
+        "TimeStartMin",
+        "TimerEnable",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLANTIMECFG_ID",
+        "OBJ_WLANTIME_ID",
+        "OBJ_WLANSETTING_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "wlanBasic",
+          "section": "WlanBasicAdOnOff",
+          "query": {},
+          "fields": [
+            {
+              "name": "RadioStatus",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "TimerEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Band",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TimeStartHour",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TimeStartMin",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TimeEndHour",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TimeEndMin",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_wlansssidconf_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wlanBasic"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "11iAuthMode",
+        "11iEncryptType",
+        "Alias",
+        "Band",
+        "BeaconType",
+        "ESSID",
+        "ESSIDHideEnable",
+        "EnBandSteer",
+        "Enable",
+        "KeyPassphrase",
+        "MaxUserNum",
+        "RadioStatus",
+        "VapIsolationEnable",
+        "WEPAuthMode",
+        "WEPKey",
+        "WEPKeyIndex",
+        "WLANViewName",
+        "WPA3AuthMode",
+        "WPA3EncryptType",
+        "WPAAuthMode",
+        "WPAEncryptType",
+        "WPAGroupRekey",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLANAP_ID",
+        "OBJ_WLANSETTING_ID",
+        "OBJ_WLANWEPKEY_ID",
+        "OBJ_WLANPSK_ID",
+        "OBJ_MAP_MASTER_ID"
+      ],
+      "encodedFields": [
+        "KeyPassphrase",
+        "WEPKey"
+      ],
+      "bindings": [
+        {
+          "page": "wlanBasic",
+          "section": "WLANSSIDConf",
+          "query": {},
+          "fields": [
+            {
+              "name": "Enable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_WEPCONIG",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_PSKCONIG",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "BeaconType",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "WEPAuthMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "WPAAuthMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "11iAuthMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "WPAEncryptType",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "11iEncryptType",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "WPA3AuthMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "WPA3EncryptType",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_InstID_WEP0",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_InstID_WEP1",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_InstID_WEP2",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_InstID_WEP3",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_InstID_PSK",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "MasterAuthServerIp",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_InstID_GUEST",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "_GUEST",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "GuestWifi",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "ESSID",
+              "controlType": "text",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "ESSIDHideEnable",
+              "controlType": "radio",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "1",
+                "0"
+              ]
+            },
+            {
+              "name": "EncryptionType",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response",
+              "enum": [
+                "No Security",
+                "WPA2-PSK-AES",
+                "WPA/WPA2-PSK-TKIP/AES",
+                "WPA3-SAE",
+                "WPA2/WPA3-SAE"
+              ]
+            },
+            {
+              "name": "KeyPassphrase",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "WEPKeyIndex",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "not encrypted: selector; WEPKey prefix metadata applies to password inputs",
+              "enum": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            },
+            {
+              "name": "ShowWEPKey",
+              "controlType": "checkbox",
+              "sensitive": true,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            },
+            {
+              "name": "WEPKey00",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "WEPKey01",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "WEPKey02",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "WEPKey03",
+              "controlType": "password",
+              "sensitive": true,
+              "encryption": "required; static attribute or observed response encode metadata"
+            },
+            {
+              "name": "WLANSSIDConf_Refresh_button",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "not marked by captured encode metadata; re-evaluate on each response"
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "read_reload_via_post",
+          "verified": false,
+          "evidence": "UI Cancel control; used for reloading current form values, not rollback",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Cancel"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_wlanstatus_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "localNetStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "11iAuthMode",
+        "11iEncryptType",
+        "Alias",
+        "Band",
+        "BeaconType",
+        "Bssid",
+        "ChannelInUsed",
+        "ESSID",
+        "Enable",
+        "RealRF",
+        "TotalBytesReceived",
+        "TotalBytesSent",
+        "TotalPacketsReceived",
+        "TotalPacketsSent",
+        "WEPAuthMode",
+        "WLANViewName",
+        "WPA3AuthMode",
+        "WPAAuthMode",
+        "WPAEncryptType",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLANAP_ID",
+        "OBJ_WLANCONFIGDRV_ID",
+        "OBJ_WLANSETTING_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "localNetStatus",
+          "section": "WLANStatus",
+          "query": {},
+          "fields": [
+            {
+              "name": "TotalPacketsReceived",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TotalPacketsSent",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TotalBytesReceived",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "TotalBytesSent",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "counter_reset",
+          "verified": false,
+          "evidence": "Explicit status-page counter clear handler",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "WLAN_CLEAR"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wlan_wps_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "wps"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "Band",
+        "Enable",
+        "RadioStatus",
+        "WPSMode",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WLANSETTING_ID",
+        "OBJ_WPS_ID",
+        "OBJ_WPS_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "wps",
+          "section": "WPS",
+          "query": {},
+          "fields": [
+            {
+              "name": "_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SSID_InstID",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "Enable",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "WPSMode",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "WpsPINShow",
+              "controlType": "hidden",
+              "sensitive": true,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "WPSChoose",
+              "controlType": "select",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed",
+              "enum": [
+                "Disabled",
+                "PBC"
+              ]
+            }
+          ],
+          "hooks": [
+            "hiddenValueChangeByCustom"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        },
+        {
+          "method": "POST",
+          "effect": "configuration_write",
+          "verified": false,
+          "evidence": "UI Apply button + shared InitialPostData/dataPost serializer",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Apply"
+          },
+          "supportsCreateCandidate": false
+        },
+        {
+          "method": "POST",
+          "effect": "security_state_change",
+          "verified": false,
+          "evidence": "WPS RefreshPINCode request; not ordinary read refresh",
+          "action": {
+            "parameter": "IF_ACTION",
+            "value": "Refresh"
+          },
+          "parameters": {
+            "SSID_InstID": "SSID instance identity"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "wwan_mobile_status_lua.lua",
+      "type": "menuData",
+      "pages": [
+        "Wan3gStatus"
+      ],
+      "readVerified": true,
+      "observedFields": [
+        "IMEI",
+        "MobileAlarm",
+        "MobileName",
+        "NetWorkMode",
+        "SignalStrength",
+        "_InstID"
+      ],
+      "observedObjects": [
+        "OBJ_WWANMOBILEINFO_ID"
+      ],
+      "encodedFields": [],
+      "bindings": [
+        {
+          "page": "Wan3gStatus",
+          "section": "Mobile3GStatus",
+          "query": {},
+          "fields": [
+            {
+              "name": "MobileAlarm",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            },
+            {
+              "name": "SignalStrength",
+              "controlType": "hidden",
+              "sensitive": false,
+              "encryption": "unknown until response encode metadata is processed"
+            }
+          ],
+          "hooks": []
+        }
+      ],
+      "operations": [
+        {
+          "method": "GET",
+          "effect": "read",
+          "verified": true,
+          "evidence": "UI address and dataTransfer GET; except explicit active-scan routes"
+        }
+      ]
+    }
+  ],
+  "soapServices": [
+    {
+      "serviceType": "urn:schemas-microsoft-com:service:OSInfo:1",
+      "serviceId": "urn:microsoft-com:serviceId:OSInfo1",
+      "controlURL": "/upnp/control/OSInfo1",
+      "eventSubURL": "/upnp/event/OSInfo1",
+      "SCPDURL": "/gateinfoSCPD.xml",
+      "actions": [
+        {
+          "name": "MagicOn",
+          "args": [],
+          "arguments": [],
+          "effect": "unknown_do_not_invoke_without_review",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-microsoft-com:service:OSInfo:1#MagicOn\""
+        }
+      ],
+      "state_variables": {
+        "OSMajorVersion": {
+          "type": "i4",
+          "allowed_values": []
+        },
+        "OSMinorVersion": {
+          "type": "i4",
+          "allowed_values": []
+        },
+        "OSBuildNumber": {
+          "type": "i4",
+          "allowed_values": []
+        },
+        "OSMachineName": {
+          "type": "string",
+          "allowed_values": []
+        }
+      },
+      "authentication": "none observed on tested reads; writes untested"
+    },
+    {
+      "serviceType": "urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1",
+      "serviceId": "urn:upnp-org:serviceId:WANCommonIFC1",
+      "controlURL": "/upnp/control/WANCommonIFC1",
+      "eventSubURL": "/upnp/control/WANCommonIFC1",
+      "SCPDURL": "/gateicfgSCPD.xml",
+      "actions": [
+        {
+          "name": "GetCommonLinkProperties",
+          "args": [
+            [
+              "NewWANAccessType",
+              "out"
+            ],
+            [
+              "NewLayer1UpstreamMaxBitRate",
+              "out"
+            ],
+            [
+              "NewLayer1DownstreamMaxBitRate",
+              "out"
+            ],
+            [
+              "NewPhysicalLinkStatus",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewWANAccessType",
+              "direction": "out",
+              "related_state_variable": "WANAccessType",
+              "type": "string",
+              "allowed_values": [
+                "DSL",
+                "POTS",
+                "Cable",
+                "Ethernet",
+                "Other"
+              ]
+            },
+            {
+              "name": "NewLayer1UpstreamMaxBitRate",
+              "direction": "out",
+              "related_state_variable": "Layer1UpstreamMaxBitRate",
+              "type": "ui4",
+              "allowed_values": []
+            },
+            {
+              "name": "NewLayer1DownstreamMaxBitRate",
+              "direction": "out",
+              "related_state_variable": "Layer1DownstreamMaxBitRate",
+              "type": "ui4",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPhysicalLinkStatus",
+              "direction": "out",
+              "related_state_variable": "PhysicalLinkStatus",
+              "type": "string",
+              "allowed_values": [
+                "Up",
+                "Down",
+                "Initializing",
+                "Unavailable"
+              ]
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 500,
+          "verified": false,
+          "caveat": "Advertised in SCPD but returned a SOAP fault during read test",
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1#GetCommonLinkProperties\""
+        },
+        {
+          "name": "GetTotalBytesSent",
+          "args": [
+            [
+              "NewTotalBytesSent",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewTotalBytesSent",
+              "direction": "out",
+              "related_state_variable": "TotalBytesSent",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1#GetTotalBytesSent\""
+        },
+        {
+          "name": "GetTotalBytesReceived",
+          "args": [
+            [
+              "NewTotalBytesReceived",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewTotalBytesReceived",
+              "direction": "out",
+              "related_state_variable": "TotalBytesReceived",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1#GetTotalBytesReceived\""
+        },
+        {
+          "name": "GetTotalPacketsSent",
+          "args": [
+            [
+              "NewTotalPacketsSent",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewTotalPacketsSent",
+              "direction": "out",
+              "related_state_variable": "TotalPacketsSent",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1#GetTotalPacketsSent\""
+        },
+        {
+          "name": "GetTotalPacketsReceived",
+          "args": [
+            [
+              "NewTotalPacketsReceived",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewTotalPacketsReceived",
+              "direction": "out",
+              "related_state_variable": "TotalPacketsReceived",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1#GetTotalPacketsReceived\""
+        }
+      ],
+      "state_variables": {
+        "WANAccessType": {
+          "type": "string",
+          "allowed_values": [
+            "DSL",
+            "POTS",
+            "Cable",
+            "Ethernet",
+            "Other"
+          ]
+        },
+        "Layer1UpstreamMaxBitRate": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "Layer1DownstreamMaxBitRate": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "PhysicalLinkStatus": {
+          "type": "string",
+          "allowed_values": [
+            "Up",
+            "Down",
+            "Initializing",
+            "Unavailable"
+          ]
+        },
+        "WANAccessProvider": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "MaximumActiveConnections": {
+          "type": "ui2",
+          "allowed_values": []
+        },
+        "TotalBytesSent": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "TotalBytesReceived": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "TotalPacketsSent": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "TotalPacketsReceived": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "X_PersonalFirewallEnabled": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "X_Uptime": {
+          "type": "ui4",
+          "allowed_values": []
+        }
+      },
+      "authentication": "none observed on tested reads; writes untested"
+    },
+    {
+      "serviceType": "urn:schemas-upnp-org:service:WANIPConnection:1",
+      "serviceId": "urn:upnp-org:serviceId:WANIPConn1",
+      "controlURL": "/upnp/control/WANIPConn1",
+      "eventSubURL": "/upnp/control/WANIPConn1",
+      "SCPDURL": "/gateconnSCPD.xml",
+      "actions": [
+        {
+          "name": "SetConnectionType",
+          "args": [
+            [
+              "NewConnectionType",
+              "in"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewConnectionType",
+              "direction": "in",
+              "related_state_variable": "ConnectionType",
+              "type": "string",
+              "allowed_values": []
+            }
+          ],
+          "effect": "connectivity_disrupting",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#SetConnectionType\""
+        },
+        {
+          "name": "GetConnectionTypeInfo",
+          "args": [
+            [
+              "NewConnectionType",
+              "out"
+            ],
+            [
+              "NewPossibleConnectionTypes",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewConnectionType",
+              "direction": "out",
+              "related_state_variable": "ConnectionType",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPossibleConnectionTypes",
+              "direction": "out",
+              "related_state_variable": "PossibleConnectionTypes",
+              "type": "string",
+              "allowed_values": [
+                "Unconfigured",
+                "IP_Routed",
+                "IP_Bridged"
+              ]
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetConnectionTypeInfo\""
+        },
+        {
+          "name": "RequestConnection",
+          "args": [],
+          "arguments": [],
+          "effect": "connectivity_disrupting",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#RequestConnection\""
+        },
+        {
+          "name": "ForceTermination",
+          "args": [],
+          "arguments": [],
+          "effect": "connectivity_disrupting",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination\""
+        },
+        {
+          "name": "GetStatusInfo",
+          "args": [
+            [
+              "NewConnectionStatus",
+              "out"
+            ],
+            [
+              "NewLastConnectionError",
+              "out"
+            ],
+            [
+              "NewUptime",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewConnectionStatus",
+              "direction": "out",
+              "related_state_variable": "ConnectionStatus",
+              "type": "string",
+              "allowed_values": [
+                "Unconfigured",
+                "Connecting",
+                "Authenticating",
+                "PendingDisconnect",
+                "Disconnecting",
+                "Disconnected",
+                "Connected"
+              ]
+            },
+            {
+              "name": "NewLastConnectionError",
+              "direction": "out",
+              "related_state_variable": "LastConnectionError",
+              "type": "string",
+              "allowed_values": [
+                "ERROR_NONE",
+                "ERROR_ISP_TIME_OUT",
+                "ERROR_COMMAND_ABORTED",
+                "ERROR_NOT_ENABLED_FOR_INTERNET",
+                "ERROR_BAD_PHONE_NUMBER",
+                "ERROR_USER_DISCONNECT",
+                "ERROR_ISP_DISCONNECT",
+                "ERROR_IDLE_DISCONNECT",
+                "ERROR_FORCED_DISCONNECT",
+                "ERROR_SERVER_OUT_OF_RESOURCES",
+                "ERROR_RESTRICTED_LOGON_HOURS",
+                "ERROR_ACCOUNT_DISABLED",
+                "ERROR_ACCOUNT_EXPIRED",
+                "ERROR_PASSWORD_EXPIRED",
+                "ERROR_AUTHENTICATION_FAILURE",
+                "ERROR_NO_DIALTONE",
+                "ERROR_NO_CARRIER",
+                "ERROR_NO_ANSWER",
+                "ERROR_LINE_BUSY",
+                "ERROR_UNSUPPORTED_BITSPERSECOND",
+                "ERROR_TOO_MANY_LINE_ERRORS",
+                "ERROR_IP_CONFIGURATION",
+                "ERROR_UNKNOWN"
+              ]
+            },
+            {
+              "name": "NewUptime",
+              "direction": "out",
+              "related_state_variable": "Uptime",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetStatusInfo\""
+        },
+        {
+          "name": "GetNATRSIPStatus",
+          "args": [
+            [
+              "NewRSIPAvailable",
+              "out"
+            ],
+            [
+              "NewNATEnabled",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewRSIPAvailable",
+              "direction": "out",
+              "related_state_variable": "RSIPAvailable",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "NewNATEnabled",
+              "direction": "out",
+              "related_state_variable": "NATEnabled",
+              "type": "boolean",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetNATRSIPStatus\""
+        },
+        {
+          "name": "GetGenericPortMappingEntry",
+          "args": [
+            [
+              "NewPortMappingIndex",
+              "in"
+            ],
+            [
+              "NewRemoteHost",
+              "out"
+            ],
+            [
+              "NewExternalPort",
+              "out"
+            ],
+            [
+              "NewProtocol",
+              "out"
+            ],
+            [
+              "NewInternalPort",
+              "out"
+            ],
+            [
+              "NewInternalClient",
+              "out"
+            ],
+            [
+              "NewEnabled",
+              "out"
+            ],
+            [
+              "NewPortMappingDescription",
+              "out"
+            ],
+            [
+              "NewLeaseDuration",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewPortMappingIndex",
+              "direction": "in",
+              "related_state_variable": "PortMappingNumberOfEntries",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewRemoteHost",
+              "direction": "out",
+              "related_state_variable": "RemoteHost",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewExternalPort",
+              "direction": "out",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "out",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "NewInternalPort",
+              "direction": "out",
+              "related_state_variable": "InternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewInternalClient",
+              "direction": "out",
+              "related_state_variable": "InternalClient",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewEnabled",
+              "direction": "out",
+              "related_state_variable": "PortMappingEnabled",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPortMappingDescription",
+              "direction": "out",
+              "related_state_variable": "PortMappingDescription",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewLeaseDuration",
+              "direction": "out",
+              "related_state_variable": "PortMappingLeaseDuration",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": null,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetGenericPortMappingEntry\""
+        },
+        {
+          "name": "GetSpecificPortMappingEntry",
+          "args": [
+            [
+              "NewRemoteHost",
+              "in"
+            ],
+            [
+              "NewExternalPort",
+              "in"
+            ],
+            [
+              "NewProtocol",
+              "in"
+            ],
+            [
+              "NewInternalPort",
+              "out"
+            ],
+            [
+              "NewInternalClient",
+              "out"
+            ],
+            [
+              "NewEnabled",
+              "out"
+            ],
+            [
+              "NewPortMappingDescription",
+              "out"
+            ],
+            [
+              "NewLeaseDuration",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewRemoteHost",
+              "direction": "in",
+              "related_state_variable": "RemoteHost",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewExternalPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "in",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "NewInternalPort",
+              "direction": "out",
+              "related_state_variable": "InternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewInternalClient",
+              "direction": "out",
+              "related_state_variable": "InternalClient",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewEnabled",
+              "direction": "out",
+              "related_state_variable": "PortMappingEnabled",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPortMappingDescription",
+              "direction": "out",
+              "related_state_variable": "PortMappingDescription",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewLeaseDuration",
+              "direction": "out",
+              "related_state_variable": "PortMappingLeaseDuration",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetSpecificPortMappingEntry\""
+        },
+        {
+          "name": "AddPortMapping",
+          "args": [
+            [
+              "NewRemoteHost",
+              "in"
+            ],
+            [
+              "NewExternalPort",
+              "in"
+            ],
+            [
+              "NewProtocol",
+              "in"
+            ],
+            [
+              "NewInternalPort",
+              "in"
+            ],
+            [
+              "NewInternalClient",
+              "in"
+            ],
+            [
+              "NewEnabled",
+              "in"
+            ],
+            [
+              "NewPortMappingDescription",
+              "in"
+            ],
+            [
+              "NewLeaseDuration",
+              "in"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewRemoteHost",
+              "direction": "in",
+              "related_state_variable": "RemoteHost",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewExternalPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "in",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "NewInternalPort",
+              "direction": "in",
+              "related_state_variable": "InternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewInternalClient",
+              "direction": "in",
+              "related_state_variable": "InternalClient",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewEnabled",
+              "direction": "in",
+              "related_state_variable": "PortMappingEnabled",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPortMappingDescription",
+              "direction": "in",
+              "related_state_variable": "PortMappingDescription",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewLeaseDuration",
+              "direction": "in",
+              "related_state_variable": "PortMappingLeaseDuration",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#AddPortMapping\""
+        },
+        {
+          "name": "DeletePortMapping",
+          "args": [
+            [
+              "NewRemoteHost",
+              "in"
+            ],
+            [
+              "NewExternalPort",
+              "in"
+            ],
+            [
+              "NewProtocol",
+              "in"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewRemoteHost",
+              "direction": "in",
+              "related_state_variable": "RemoteHost",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewExternalPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "in",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#DeletePortMapping\""
+        },
+        {
+          "name": "GetExternalIPAddress",
+          "args": [
+            [
+              "NewExternalIPAddress",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewExternalIPAddress",
+              "direction": "out",
+              "related_state_variable": "ExternalIPAddress",
+              "type": "string",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 200,
+          "verified": true,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress\""
+        },
+        {
+          "name": "DeletePortMappingRange",
+          "args": [
+            [
+              "NewStartPort",
+              "in"
+            ],
+            [
+              "NewEndPort",
+              "in"
+            ],
+            [
+              "NewProtocol",
+              "in"
+            ],
+            [
+              "NewManage",
+              "in"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewStartPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewEndPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "in",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "NewManage",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Manage",
+              "type": "boolean",
+              "allowed_values": []
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#DeletePortMappingRange\""
+        },
+        {
+          "name": "GetListOfPortMappings",
+          "args": [
+            [
+              "NewStartPort",
+              "in"
+            ],
+            [
+              "NewEndPort",
+              "in"
+            ],
+            [
+              "NewProtocol",
+              "in"
+            ],
+            [
+              "NewManage",
+              "in"
+            ],
+            [
+              "NewNumberOfPorts",
+              "in"
+            ],
+            [
+              "NewPortListing",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewStartPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewEndPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "in",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "NewManage",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Manage",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "NewNumberOfPorts",
+              "direction": "in",
+              "related_state_variable": "PortMappingNumberOfEntries",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPortListing",
+              "direction": "out",
+              "related_state_variable": "A_ARG_TYPE_PortListing",
+              "type": "string",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#GetListOfPortMappings\""
+        },
+        {
+          "name": "AddAnyPortMapping",
+          "args": [
+            [
+              "NewRemoteHost",
+              "in"
+            ],
+            [
+              "NewExternalPort",
+              "in"
+            ],
+            [
+              "NewProtocol",
+              "in"
+            ],
+            [
+              "NewInternalPort",
+              "in"
+            ],
+            [
+              "NewInternalClient",
+              "in"
+            ],
+            [
+              "NewEnabled",
+              "in"
+            ],
+            [
+              "NewPortMappingDescription",
+              "in"
+            ],
+            [
+              "NewLeaseDuration",
+              "in"
+            ],
+            [
+              "NewReservedPort",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "NewRemoteHost",
+              "direction": "in",
+              "related_state_variable": "RemoteHost",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewExternalPort",
+              "direction": "in",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewProtocol",
+              "direction": "in",
+              "related_state_variable": "PortMappingProtocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "NewInternalPort",
+              "direction": "in",
+              "related_state_variable": "InternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewInternalClient",
+              "direction": "in",
+              "related_state_variable": "InternalClient",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewEnabled",
+              "direction": "in",
+              "related_state_variable": "PortMappingEnabled",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "NewPortMappingDescription",
+              "direction": "in",
+              "related_state_variable": "PortMappingDescription",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "NewLeaseDuration",
+              "direction": "in",
+              "related_state_variable": "PortMappingLeaseDuration",
+              "type": "ui4",
+              "allowed_values": []
+            },
+            {
+              "name": "NewReservedPort",
+              "direction": "out",
+              "related_state_variable": "ExternalPort",
+              "type": "ui2",
+              "allowed_values": []
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPConnection:1#AddAnyPortMapping\""
+        }
+      ],
+      "state_variables": {
+        "ConnectionType": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "PossibleConnectionTypes": {
+          "type": "string",
+          "allowed_values": [
+            "Unconfigured",
+            "IP_Routed",
+            "IP_Bridged"
+          ]
+        },
+        "ConnectionStatus": {
+          "type": "string",
+          "allowed_values": [
+            "Unconfigured",
+            "Connecting",
+            "Authenticating",
+            "PendingDisconnect",
+            "Disconnecting",
+            "Disconnected",
+            "Connected"
+          ]
+        },
+        "Uptime": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "RSIPAvailable": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "NATEnabled": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "X_Name": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "LastConnectionError": {
+          "type": "string",
+          "allowed_values": [
+            "ERROR_NONE",
+            "ERROR_ISP_TIME_OUT",
+            "ERROR_COMMAND_ABORTED",
+            "ERROR_NOT_ENABLED_FOR_INTERNET",
+            "ERROR_BAD_PHONE_NUMBER",
+            "ERROR_USER_DISCONNECT",
+            "ERROR_ISP_DISCONNECT",
+            "ERROR_IDLE_DISCONNECT",
+            "ERROR_FORCED_DISCONNECT",
+            "ERROR_SERVER_OUT_OF_RESOURCES",
+            "ERROR_RESTRICTED_LOGON_HOURS",
+            "ERROR_ACCOUNT_DISABLED",
+            "ERROR_ACCOUNT_EXPIRED",
+            "ERROR_PASSWORD_EXPIRED",
+            "ERROR_AUTHENTICATION_FAILURE",
+            "ERROR_NO_DIALTONE",
+            "ERROR_NO_CARRIER",
+            "ERROR_NO_ANSWER",
+            "ERROR_LINE_BUSY",
+            "ERROR_UNSUPPORTED_BITSPERSECOND",
+            "ERROR_TOO_MANY_LINE_ERRORS",
+            "ERROR_IP_CONFIGURATION",
+            "ERROR_UNKNOWN"
+          ]
+        },
+        "ExternalIPAddress": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "RemoteHost": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "ExternalPort": {
+          "type": "ui2",
+          "allowed_values": []
+        },
+        "InternalPort": {
+          "type": "ui2",
+          "allowed_values": []
+        },
+        "PortMappingProtocol": {
+          "type": "string",
+          "allowed_values": [
+            "TCP",
+            "UDP"
+          ]
+        },
+        "InternalClient": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "PortMappingDescription": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "PortMappingEnabled": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "PortMappingLeaseDuration": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "PortMappingNumberOfEntries": {
+          "type": "ui2",
+          "allowed_values": []
+        },
+        "SystemUpdateID": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_Manage": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_PortListing": {
+          "type": "string",
+          "allowed_values": []
+        }
+      },
+      "authentication": "none observed on tested reads; writes untested"
+    },
+    {
+      "serviceType": "urn:schemas-upnp-org:service:WANIPv6FirewallControl:1",
+      "serviceId": "urn:upnp-org:serviceId:WANIPv6FwCtrl1",
+      "controlURL": "/upnp/control/WANIPv6FwCtrl1",
+      "eventSubURL": "/upnp/control/WANIPv6FwCtrl1",
+      "SCPDURL": "/gatev6fwctrlSCPD.xml",
+      "actions": [
+        {
+          "name": "GetFirewallStatus",
+          "args": [
+            [
+              "FirewallEnabled",
+              "out"
+            ],
+            [
+              "InboundPinholeAllowed",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "FirewallEnabled",
+              "direction": "out",
+              "related_state_variable": "FirewallEnabled",
+              "type": "boolean",
+              "allowed_values": []
+            },
+            {
+              "name": "InboundPinholeAllowed",
+              "direction": "out",
+              "related_state_variable": "InboundPinholeAllowed",
+              "type": "boolean",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": 500,
+          "verified": false,
+          "caveat": "Advertised in SCPD but returned a SOAP fault during read test",
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#GetFirewallStatus\""
+        },
+        {
+          "name": "GetOutboundPinholeTimeout",
+          "args": [
+            [
+              "RemoteHost",
+              "in"
+            ],
+            [
+              "RemotePort",
+              "in"
+            ],
+            [
+              "InternalClient",
+              "in"
+            ],
+            [
+              "InternalPort",
+              "in"
+            ],
+            [
+              "Protocol",
+              "in"
+            ],
+            [
+              "OutboundPinholeTimeout",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "RemoteHost",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_IPv6Address",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "RemotePort",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Port",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "InternalClient",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_IPv6Address",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "InternalPort",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Port",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "Protocol",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Protocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "OutboundPinholeTimeout",
+              "direction": "out",
+              "related_state_variable": "A_ARG_TYPE_OutboundPinholeTimeout",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#GetOutboundPinholeTimeout\""
+        },
+        {
+          "name": "AddPinhole",
+          "args": [
+            [
+              "RemoteHost",
+              "in"
+            ],
+            [
+              "RemotePort",
+              "in"
+            ],
+            [
+              "InternalClient",
+              "in"
+            ],
+            [
+              "InternalPort",
+              "in"
+            ],
+            [
+              "Protocol",
+              "in"
+            ],
+            [
+              "LeaseTime",
+              "in"
+            ],
+            [
+              "UniqueID",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "RemoteHost",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_IPv6Address",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "RemotePort",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Port",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "InternalClient",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_IPv6Address",
+              "type": "string",
+              "allowed_values": []
+            },
+            {
+              "name": "InternalPort",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Port",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "Protocol",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_Protocol",
+              "type": "string",
+              "allowed_values": [
+                "TCP",
+                "UDP"
+              ]
+            },
+            {
+              "name": "LeaseTime",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_LeaseTime",
+              "type": "ui4",
+              "allowed_values": []
+            },
+            {
+              "name": "UniqueID",
+              "direction": "out",
+              "related_state_variable": "A_ARG_TYPE_UniqueID",
+              "type": "ui2",
+              "allowed_values": []
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#AddPinhole\""
+        },
+        {
+          "name": "UpdatePinhole",
+          "args": [
+            [
+              "UniqueID",
+              "in"
+            ],
+            [
+              "NewLeaseTime",
+              "in"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "UniqueID",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_UniqueID",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "NewLeaseTime",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_LeaseTime",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#UpdatePinhole\""
+        },
+        {
+          "name": "DeletePinhole",
+          "args": [
+            [
+              "UniqueID",
+              "in"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "UniqueID",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_UniqueID",
+              "type": "ui2",
+              "allowed_values": []
+            }
+          ],
+          "effect": "write_or_device_action",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#DeletePinhole\""
+        },
+        {
+          "name": "GetPinholePackets",
+          "args": [
+            [
+              "UniqueID",
+              "in"
+            ],
+            [
+              "PinholePackets",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "UniqueID",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_UniqueID",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "PinholePackets",
+              "direction": "out",
+              "related_state_variable": "A_ARG_TYPE_PinholePackets",
+              "type": "ui4",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#GetPinholePackets\""
+        },
+        {
+          "name": "CheckPinholeWorking",
+          "args": [
+            [
+              "UniqueID",
+              "in"
+            ],
+            [
+              "IsWorking",
+              "out"
+            ]
+          ],
+          "arguments": [
+            {
+              "name": "UniqueID",
+              "direction": "in",
+              "related_state_variable": "A_ARG_TYPE_UniqueID",
+              "type": "ui2",
+              "allowed_values": []
+            },
+            {
+              "name": "IsWorking",
+              "direction": "out",
+              "related_state_variable": "A_ARG_TYPE_Boolean",
+              "type": "boolean",
+              "allowed_values": []
+            }
+          ],
+          "effect": "read",
+          "test_http_status": null,
+          "verified": false,
+          "soap_action_header": "\"urn:schemas-upnp-org:service:WANIPv6FirewallControl:1#CheckPinholeWorking\""
+        }
+      ],
+      "state_variables": {
+        "FirewallEnabled": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_IPv6Address": {
+          "type": "string",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_Port": {
+          "type": "ui2",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_Protocol": {
+          "type": "string",
+          "allowed_values": [
+            "TCP",
+            "UDP"
+          ]
+        },
+        "A_ARG_TYPE_UniqueID": {
+          "type": "ui2",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_LeaseTime": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "InboundPinholeAllowed": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_OutboundPinholeTimeout": {
+          "type": "ui4",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_Boolean": {
+          "type": "boolean",
+          "allowed_values": []
+        },
+        "A_ARG_TYPE_PinholePackets": {
+          "type": "ui4",
+          "allowed_values": []
+        }
+      },
+      "authentication": "none observed on tested reads; writes untested"
+    }
+  ]
+}
