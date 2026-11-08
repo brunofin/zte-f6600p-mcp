@@ -155,7 +155,7 @@ npm audit
 npm run docs:generate
 ```
 
-Tests use synthetic fixtures and local mock servers. They do not discover, log in to, or mutate a real router. TLS test certificates and RSA keys are generated at test time, not committed. CI runs offline protocol tests on Node 22 and 24; network access is only needed for dependency installation/auditing.
+Tests use synthetic fixtures and local mock servers. They do not discover, log in to, or mutate a real router. TLS test certificates and RSA keys are generated at test time, not committed. Run the checks locally with `npm run check`; dependency installation and auditing require network access.
 
 No raw firmware UI dumps, private configuration, packet captures, SSIDs, client identities, original IP/MAC addresses, device serials, personal certificate pins, session tokens or real secrets are included. Runtime MCP reads naturally return your local network's requested non-secret data to your MCP host—keep that host trusted and review its retention settings. “Secret redaction” is not full anonymization of live device lists.
 
